@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %} - Invest101</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}" type="text/css">
     {% endblock %}
 </head>
 <body>
     {% block navbar %}
     <div class="navbar">
+        <div class="logo">INVESTMENT 101</div>
         <ul class="nav-content">
             <li class="nav-item"><a href="/">Your Portfolio</a></li>
             <li class="nav-item"><a href="buy">Buy</a></li>

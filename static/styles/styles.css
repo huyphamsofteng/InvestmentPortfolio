@@ -1,0 +1,111 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+html{
+    scroll-behavior: smooth;
+	--color-1: #9400FF;
+	--color-2: #393E46;
+}
+#content{
+	display: flex;
+	justify-content: center;
+	width: 80%;
+	padding: 5% 10%;
+}
+#footer{
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(148, 0, 255, 0.5);
+	width: 100%;
+}
+body {
+    font-family: "Roboto", sans-serif;
+	font-size: 1rem;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.navbar{
+	display: flex;
+	width: 90%;
+	justify-content: space-between;
+	padding: 1% 5%;
+}
+.logo{
+	width: 50%;
+	font-weight: 700;
+	color: var(--color-1);
+}
+.nav-content{
+	display: flex;
+	justify-content: end;
+	width: 30%;
+	column-gap: 3.333vw;
+}
+
+.nav-item{
+	list-style: none;
+	padding: 1%;
+}
+.nav-item a:hover{
+	transition: all ease-in 200ms;
+	color: var(--color-1);
+}
+
+.stock-profile{
+	display: flex;
+	justify-content: center;
+	column-gap: 1.5vw;
+	min-height: 60vh;
+	min-width: 60vw;
+}
+
+.stock-info, .stock-detail{
+	border: 1.5px solid var(--color-1);
+	border-radius: 10px;
+	padding: 5%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 1.68vh;
+	width: 40%;
+	min-width: 40%;
+}
+
+.stock-info:hover, .stock-detail:hover{
+	transition: all ease 200ms;
+	box-shadow: -10px 5px var(--color-1);
+	transform:translateX(10px);
+	transform:translateY(-5px);
+}
+
+.stock-info h1{
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+.stock-info h3{
+	color: var(--color-2);
+}
+.stock-info h2{
+	font-weight: bold;
+	text-decoration: 1px underline var(--color-1);
+}
+.stock-symbol{
+	display: flex;
+	column-gap: 1vw;
+}
+.stock-symbol-item{
+	padding: 16.8px;
+	background-color: var(--color-1);
+	color:white;
+	border-radius: 50px;
+}
+
+.stock-alert{
+	
+}

@@ -1,10 +1,51 @@
 {% extends "base.html" %}
 {% block title %}Main Portfolio{% endblock %}
 {% block content %}
-<h1>This is the main page</h1>
-{% for stock in stocks %}
-    <h2>Symbol: </h2> <h3>{{ stock.symbol }}</h3> <br>
-    <h2>Price: </h2> <h3>{{ stock.price }}</h3> <br>
-{% endfor %}
+<div class="stock-profile">
+    <div class="stock-info">
+        <h1>${{ total_value }}</h1>
+        <h3>{{ gain_loss }} all time</h2>
+        <h2>Holdings</h2>
+        <div class="stock-symbol">
+            {% if stock %}
+                {% for stock in stocks %}
+                    <div class="stock-symbol-item"> {{ stock.symbol }}</div>
+                {% endfor %}
+            {% else %}
+                <div class="stock-alert">Not currently holding any stocks.</div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="stock-detail">
+        <table>
+            <thead>
+                <th>Symbol</th>
+                <th>Book Value</th>
+                <th>Market Price</th>
+            </thead>
+            <tbody>
+                {% if stock %}
+                    {% for stock in stocks %}
+                    <tr>
+                        <td> {{ stock.symbol }}</td>
+                        <td> ${{ stock.book_value }} </td>
+                        <td> ${{ stock.market_price }} </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <th colspan="3"><a href="/buy"><div class="stock-alert">Add one to start</div></a>
+                        </th>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
 
