@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Main Portfolio{% endblock %}
+{% block content %}
+<h1>This is the main page</h1>
+{% for stock in stocks %}
+    <h2>Symbol: </h2> <h3>{{ stock.symbol }}</h3> <br>
+    <h2>Price: </h2> <h3>{{ stock.price }}</h3> <br>
+{% endfor %}
+{% endblock %}
+

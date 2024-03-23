@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Buy{% endblock %}
+{% block content %}
+<h1>This is the buy page</h1>
+<form action="/" method="POST">
+    <label for="symbol">Ticker</label>
+    <input type="text" id="symbol" name="symbol" minlength="1" maxlength="4" placeholder="Search for symbols" required>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
