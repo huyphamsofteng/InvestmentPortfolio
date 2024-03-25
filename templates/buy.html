@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Buy{% endblock %}
 {% block content %}
-<h1>This is the buy page</h1>
-<form action="/" method="POST">
-    <label for="symbol">Ticker</label>
-    <input type="text" id="symbol" name="symbol" minlength="1" maxlength="4" placeholder="Search for symbols" required>
-    <input type="submit" value="Submit">
-</form>
+<div class="stock-buy">
+    <h1>Add Stocks</h1>
+    <form action="/buy" method="POST">
+        <label for="symbol">Symbol</label>
+        <input type="text" id="symbol" name="symbol" minlength="1" maxlength="4" placeholder="Search for symbols" required>
+        <input type="number" id="shares" name="shares" min="1" max="20" placeholder="Shares (1-20)" required>
+        <input type="submit" value="Submit" class="stock-buy-submit">
+    </form>
+</div>
 {% endblock %}

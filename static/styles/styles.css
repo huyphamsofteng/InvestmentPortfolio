@@ -10,6 +10,9 @@ html{
     scroll-behavior: smooth;
 	--color-1: #9400FF;
 	--color-2: #393E46;
+	--color-3: rgba(148, 0, 255, 0.5);
+	--color-4: green;
+	--color-5: red;
 }
 #content{
 	display: flex;
@@ -20,12 +23,13 @@ html{
 #footer{
 	position: absolute;
 	bottom: 0;
-	background-color: rgba(148, 0, 255, 0.5);
+	background-color: var(--color-3);
 	width: 100%;
 }
 body {
     font-family: "Roboto", sans-serif;
 	font-size: 1rem;
+	font-weight: 500;
 }
 a{
 	text-decoration: none;
@@ -67,7 +71,7 @@ a{
 }
 
 .stock-info, .stock-detail{
-	border: 1.5px solid var(--color-1);
+	border: 2px solid var(--color-1);
 	border-radius: 10px;
 	padding: 5%;
 	display: flex;
@@ -97,7 +101,8 @@ a{
 }
 .stock-symbol{
 	display: flex;
-	column-gap: 1vw;
+	gap: 1vw;
+	flex-wrap: wrap;
 }
 .stock-symbol-item{
 	padding: 16.8px;
@@ -107,5 +112,74 @@ a{
 }
 
 .stock-alert{
-	
+	background-color: var(--color-1);
+	border-radius: 50px;
+	color: white;
+	padding: 5px;
+}
+
+.stock-detail table{
+	text-align: center;
+}
+.stock-detail table td{
+	padding: 10px; 
+}
+
+/* buy section */
+
+.stock-buy, .stock-sell{
+	display: flex;
+	flex-direction: column;
+	border: 2px solid var(--color-1);
+	border-radius: 10px;
+	padding: 3vh;
+}
+
+.stock-buy form, .stock-sell form{
+	padding: 3vh 0;
+	display: flex;
+	flex-direction: column;
+	row-gap: 3vh;
+}
+
+#symbol, #shares{
+	background-color: var(--color-3);
+	border-radius: 10px;
+	border: 2px solid black;
+	padding: 5px;
+}
+
+.stock-buy-submit, .stock-sell-submit{
+	border: 2px solid black;
+	padding: 5px;
+	border-radius: 10px;
+}
+.stock-buy-submit:hover, .stock-sell-submit:hover{
+	color: var(--color-1);
+	background-color: white;
+	transition: all 200ms;
+}
+.plus{
+	color: var(--color-4);
+}
+.minus{
+	color: var(--color-5);
+}
+.error-container{
+	display: flex;
+	flex-direction: column;
+}
+.error-img{
+	width: 23vw;
+}
+.error-text{
+	padding: 10px;
+	color: white;
+	background-color: var(--color-5);
+	text-align: center;
+}
+
+/* stock sell section */
+.stock-sell{
+	width: 33vw;
 }

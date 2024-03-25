@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Sell{% endblock %}
 {% block content %}
-<h1>This is the sell page</h1>
+<div class="stock-sell">
+    <h1>Sell Stocks</h1>
+    <form action="/sell" method="POST">
+        <label for="symbol">Symbol</label>
+        <select id="symbol" name="symbol" placeholder="Choose Symbol" required>
+            {% for stock in stocks %}
+                <option value = "{{ stock['symbol'] }}">{{ stock["symbol"] }}</option>
+            {% endfor %}
+        </select>
+        <input type="number" id="shares" name="shares" min="1" max="20" placeholder="Shares (1-20)" required>
+        <input type="submit" value="Submit" class="stock-sell-submit">
+    </form>
+</div>
 {% endblock %}
