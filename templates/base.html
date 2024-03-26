@@ -13,9 +13,15 @@
     <div class="navbar">
         <div class="logo">INVESTMENT 101</div>
         <ul class="nav-content">
-            <li class="nav-item"><a href="/">Your Portfolio</a></li>
-            <li class="nav-item"><a href="buy">Buy</a></li>
-            <li class="nav-item"><a href="sell">Sell</a></li>
+            {% if s %}
+                <li class="nav-item"><a href="/">Your Portfolio</a></li>
+                <li class="nav-item"><a href="buy">Buy</a></li>
+                <li class="nav-item"><a href="sell">Sell</a></li>
+                <li class="nav-item"><a href="logout">Log Out</a></li>
+            {% else %}
+                <li class="nav-item"><a href="login">Log In</a></li>
+                <li class="nav-item"><a href="signup">Sign Up</a></li>
+            {% endif %}
         </ul>
     </div>
     {% endblock %}

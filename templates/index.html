@@ -3,8 +3,8 @@
 {% block content %}
 <div class="stock-profile">
     <div class="stock-info">
-        <h1>${{ total_value }}</h1>
-        <h3>{{ gain_loss }} all time</h2>
+        <h1>$ {{ total_value }}</h1>
+        <h3>{{ gain_loss }} % all time</h2>
         <h2>Holdings</h2>
         <div class="stock-symbol">
             {% if stocks %}
@@ -29,8 +29,8 @@
                     {% for stock in stocks %}
                     <tr class="stock-row">
                         <td>{{ stock.symbol }}</td>
-                        <td>$<span class="bv">{{ stock.book_value }}</span></td>
-                        <td>$<span class="mv">{{ stock.market_value }}</span></td>
+                        <td>$<span class="bv" >{{ stock.book_value }}</span></td>
+                        <td>$<span class="mv" >{{ stock.market_value }}</span></td>
                         <td>{{ stock.shares }}</td>
                     </tr>
                     {% endfor %}

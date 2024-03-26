@@ -94,6 +94,7 @@ a{
 }
 .stock-info h3{
 	color: var(--color-2);
+	font-weight: 600;
 }
 .stock-info h2{
 	font-weight: bold;
@@ -127,7 +128,7 @@ a{
 
 /* buy section */
 
-.stock-buy, .stock-sell{
+.stock-buy, .stock-sell, .login, .sign-up{
 	display: flex;
 	flex-direction: column;
 	border: 2px solid var(--color-1);
@@ -135,7 +136,7 @@ a{
 	padding: 3vh;
 }
 
-.stock-buy form, .stock-sell form{
+.stock-buy form, .stock-sell form, .login form, .sign-up form{
 	padding: 3vh 0;
 	display: flex;
 	flex-direction: column;
