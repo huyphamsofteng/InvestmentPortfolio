@@ -18,7 +18,7 @@ cursor = cnx.cursor(buffered=True)
 
 def create_db():
     cursor.execute("CREATE DATABASE IF NOT EXISTS stockbase")
-    cursor.execute("CREATE TABLE IF NOT EXISTS stock (stock_id INT auto_increment, symbol CHAR(4), book_value FLOAT(7), shares INT(100), user_id INT(25), PRIMARY KEY (stock_id))")
+    cursor.execute("CREATE TABLE IF NOT EXISTS stock (stock_id INT auto_increment, symbol CHAR(8), book_value FLOAT(7), shares INT(100), user_id INT(25), PRIMARY KEY (stock_id))")
     cursor.execute("CREATE TABLE IF NOT EXISTS user (user_id INT(100) auto_increment, user_name CHAR(10), user_password LONGTEXT, total_value FLOAT(7) DEFAULT 10000 ,PRIMARY KEY (user_id))")
     cnx.commit()
     
