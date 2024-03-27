@@ -7,7 +7,7 @@ from helper import *
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F6868\n\abc]/'
-
+create_db()
 @app.route("/login", methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -92,8 +92,11 @@ def buy():
                         market_value = get_price(symbol)
                         book_value = stock["book_value"] + market_value * shares
                         shares = stock["shares"] + shares
+                        if (total_value - book_value) < 0:
+                            error_m = "Not enough money!"
+                            return render_template('error.html',error_m = error_m, s = s ),404
                         total_value = total_value - book_value
-                        cursor.execute(f"UPDATE stock SET book_value = {book_value}, shares = {shares} WHERE symbol = '{symbol}'")
+                        cursor.execute(f"UPDATE stock SET book_value = {book_value}, shares = {shares} WHERE symbol = '{symbol}' AND user_id = {user["user_id"]}")
                         check_buy = False
                 if check_buy == True:
                     book_value = get_price(symbol) * shares
@@ -122,14 +125,14 @@ def sell():
             user = get_user(session["username"])
             cursor.execute(f"SELECT * FROM stock WHERE user_id = {user["user_id"]} AND symbol = '{symbol}'")
             temp = cursor.fetchone()
-            if temp[2] < shares:
+            if temp[3] < shares:
                 error_m = "Shares are not enough!"
                 return render_template('error.html',error_m = error_m),404
-            total_value = user['total_value'] + temp[2] * get_price(symbol)
-            book_value = temp[1] - temp[1] / temp[2] * shares
-            shares = temp[2] - shares
-            cursor.execute(f"UPDATE user SET total_value = {total_value}")
-            cursor.execute(f"UPDATE stock SET book_value = {book_value}, shares = {shares} WHERE symbol = '{symbol}'")
+            total_value = user['total_value'] + temp[3] * get_price(symbol)
+            book_value = temp[2] - temp[2] / temp[3] * shares
+            shares = temp[3] - shares
+            cursor.execute(f"UPDATE user SET total_value = {total_value} WHERE user_id = {user["user_id"]}")
+            cursor.execute(f"UPDATE stock SET book_value = {book_value}, shares = {shares} WHERE symbol = '{symbol}' AND user_id = {user["user_id"]}")
             delete_zero_stock(user["user_id"])
             cnx.commit()
             return redirect(url_for('index'))

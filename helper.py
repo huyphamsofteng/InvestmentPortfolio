@@ -18,7 +18,7 @@ cursor = cnx.cursor(buffered=True)
 
 def create_db():
     cursor.execute("CREATE DATABASE IF NOT EXISTS stockbase")
-    cursor.execute("CREATE TABLE IF NOT EXISTS stock (symbol CHAR(4), book_value FLOAT(7), shares INT(100), user_id INT(25), PRIMARY KEY (symbol))")
+    cursor.execute("CREATE TABLE IF NOT EXISTS stock (stock_id INT auto_increment, symbol CHAR(4), book_value FLOAT(7), shares INT(100), user_id INT(25), PRIMARY KEY (stock_id))")
     cursor.execute("CREATE TABLE IF NOT EXISTS user (user_id INT(100) auto_increment, user_name CHAR(10), user_password LONGTEXT, total_value FLOAT(7) DEFAULT 10000 ,PRIMARY KEY (user_id))")
     cnx.commit()
     
@@ -35,10 +35,10 @@ def get_all_stocks(user_id):
     cursor.execute(f"SELECT * FROM stock WHERE user_id = {user_id}")
     temps = cursor.fetchall()
     for temp in temps:
-        stock["symbol"] = temp[0].upper()
-        stock["book_value"] = round(float(temp[1]),2)
-        stock["shares"] = int(temp[2])
-        stock["user_id"] = int(temp[3])
+        stock["symbol"] = temp[1].upper()
+        stock["book_value"] = round(float(temp[2]),2)
+        stock["shares"] = int(temp[3])
+        stock["user_id"] = int(temp[4])
         stock["market_value"] = round((stock["shares"] * get_price(stock["symbol"])),2)
         stocks.append(stock.copy())
     return stocks.copy()
