@@ -3,7 +3,7 @@
 
 
 <h1>Investment 101 Portfolio</h1>
-Create, Buy, Sell your stock portfolio in a real-time value.
+Create, Buy and Sell your stock portfolio in a real-time value.
 
 <br>
 <details>
@@ -45,13 +45,14 @@ Required to install
 
 <h3>App.py</h3>
 Route Direction, User Session and Transaction Proceed. <br>
-In the main page, a user session is checked to redirect client one of the cases:
+On the main page, a user session is checked to redirect the client to one of the cases:
 
 - Login Page
 - Portfolio Summary
 
-<img src="./project-img/Signup Page.png" style="height: 200px">
-<img src="./project-img/Login Page.png" style="height: 200px">
+<img src="./project-img/Signup Page.png" style="height: 400px">
+<img src="./project-img/Login Page.png" style="height: 280px">
+<img src="./project-img/Error Page.png" style="height: 280px">
 
 The client can sign up for an account and passwords are hashed using Bcrypt. <br>
 
@@ -60,18 +61,19 @@ Functionality:
 2. Sell Stocks
 3. Gain Loss on individual stock and total portfolio
 
-<img src="./project-img/Buy Page.png" style="height: 200px"><img src="./project-img/Sell Page.png" style="height: 200px">
-<img src="./project-img/Main Page (Portfolio).png" style="height: 200px">
+<img src="./project-img/Buy Page.png">
+<img src="./project-img/Sell Page.png">
+<img src="./project-img/Main Page (Portfolio).png">
 
 <h3>Helper.py</h3>
 
-Primary work to call query of REST API for checking symbols, Market Prices. MySQL script to create table is executed every time launching a server (if not exist). 
+Primary work to call query of REST API for checking symbols and market Prices. MySQL script to create a table is executed every time a server (if not exist). 
 
 Retrieve users and send back to app.py by list of dictionaries. Convert the tuples from SQL Execution to dictionary and ![.append()] to ![list]
 
 <h3>Script.js</h3>
 
-Change color based on the gain and loss of the individual stock. ![green] means gain and ![red] means loss.
+Change colour based on the gain and loss of the individual stock. ![green] means gain and ![red] means loss.
 
 <h3>MySQL</h3>
 
@@ -84,13 +86,13 @@ Table stock:
 * stock_id is the PRIMARY key with auto increment
 * stock_symbol is from 1 to 8 character
 * stock_book_value is the price of buying
-* stock_shares is total shares
+* stock_shares is the total shares
 * stock_user_id is FOREIGN key for linking to specific users
 
 Table user:
 * user_id is the PRIMARY key with auto increment
 * user_username used for login
-* user_password is decode when saved and encode when retrieve
+* user_password is decoded when saved and encoded when retrieve
 * user_total_value initially $10,000
 
 
