@@ -25,18 +25,23 @@ information, and transaction history.
 
 <img src="./project-img/Main Page (Portfolio).png" alt="project image">
 
+<h3>Pytest Pass Result</h3>
+<img src="./project-img/pytest.png"> 
+
 <h2>Usage</h2>
 Required to install
 
 * Flask Framework
 * Python Bcrypt
 * Python yfinance
+* Python pytest
 
 ```
 
   pip install Flask 
   pip install yfinance
   pip install Flask-Bcrypt
+  pip install pytest
 
 ```
 
