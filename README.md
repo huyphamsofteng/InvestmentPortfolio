@@ -50,9 +50,7 @@ On the main page, a user session is checked to redirect the client to one of the
 - Login Page
 - Portfolio Summary
 
-<img src="./project-img/Signup Page.png" style="height: 400px">
-<img src="./project-img/Login Page.png" style="height: 280px">
-<img src="./project-img/Error Page.png" style="height: 280px">
+<img src="./project-img/Signup Page.png" style="height: 400px"><img src="./project-img/Login Page.png" style="height: 280px"><img src="./project-img/Error Page.png" style="height: 280px">
 
 The client can sign up for an account and passwords are hashed using Bcrypt. <br>
 
